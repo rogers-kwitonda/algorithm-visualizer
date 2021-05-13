@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Box, useColorMode, Button, Heading } from '@chakra-ui/react';
 
-export default function Navbar(){
+export default function Navbar({mode, setMode, solve, reset}){
     const { colorMode, toggleColorMode } = useColorMode()
 
     return (
@@ -18,6 +18,19 @@ export default function Navbar(){
                 <Heading as='h1' size='lg'>
                     Pathfinding Algorithm Visualizer
                 </Heading>
+            </Box>
+            <Box
+                w="40%"
+            >
+                <Flex
+                    mb={8}
+                    p={8}
+                    justifyContent="space-around"
+                >
+                    <Button onClick={()=>{solve()}}>Solve</Button>
+                    <Button onClick={()=>{reset()}}>Reset Grid</Button>
+                    <Button onClick={()=>{setMode('wall')}}>Add Walls</Button>
+                </Flex>
             </Box>
             <Box>
                 <Button onClick={toggleColorMode}>
